@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Zapojení DIY Smart Monitor Light Bar</title>
+  <desc id="desc">ESP32-S3 napájené přes USB-C ovládá dvě poloviny LED pásku, PIR, BH1750 a dva dotykové moduly.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f8fa}.box{fill:#fff;stroke:#334155;stroke-width:2}.esp{fill:#e8f1ff}.led{fill:#fff7d6}.sensor{fill:#eaf8ef}.note{fill:#fff2e8;stroke:#c05a14;stroke-width:2}.t{font:600 20px system-ui,sans-serif;fill:#172033}.s{font:14px system-ui,sans-serif;fill:#475569}.p{font:600 14px ui-monospace,monospace;fill:#172033}.wire{fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.v5{stroke:#dc2626}.v33{stroke:#f59e0b}.gnd{stroke:#64748b}.sig{stroke:#16a34a}.i2c{stroke:#2563eb}.touch{stroke:#9333ea}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L8 5 1 9" fill="none" stroke="#16a34a" stroke-width="2"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="720" rx="24"/>
+  <text class="t" x="600" y="42" text-anchor="middle">DIY Smart Monitor Light Bar — zapojení</text>
+
+  <rect class="box sensor" x="40" y="90" width="210" height="105" rx="12"/><text class="t" x="145" y="122" text-anchor="middle">BH1750</text><text class="s" x="145" y="148" text-anchor="middle">3V3 · SDA 8 · SCL 9 · GND</text>
+  <rect class="box sensor" x="40" y="235" width="210" height="105" rx="12"/><text class="t" x="145" y="267" text-anchor="middle">HC-SR501</text><text class="s" x="145" y="293" text-anchor="middle">5V · OUT 5 · GND</text>
+  <rect class="box sensor" x="40" y="380" width="210" height="90" rx="12"/><text class="t" x="145" y="412" text-anchor="middle">TTP223 #1</text><text class="s" x="145" y="440" text-anchor="middle">3V3 · I/O 6 · GND</text>
+  <rect class="box sensor" x="40" y="510" width="210" height="90" rx="12"/><text class="t" x="145" y="542" text-anchor="middle">TTP223 #2</text><text class="s" x="145" y="570" text-anchor="middle">3V3 · I/O 7 · GND</text>
+
+  <rect class="box esp" x="410" y="170" width="300" height="350" rx="18"/>
+  <text class="t" x="560" y="213" text-anchor="middle">ESP32-S3 SuperMini</text>
+  <text class="p" x="435" y="265">3V3</text><text class="p" x="435" y="300">GPIO 8 / SDA</text><text class="p" x="435" y="335">GPIO 9 / SCL</text><text class="p" x="435" y="370">GPIO 5 / PIR</text><text class="p" x="435" y="405">GPIO 6 / TOUCH 1</text><text class="p" x="435" y="440">GPIO 7 / TOUCH 2</text>
+  <text class="p" x="685" y="265" text-anchor="end">5V</text><text class="p" x="685" y="335" text-anchor="end">GPIO 4 / LED</text><text class="p" x="685" y="405" text-anchor="end">GND</text>
+  <rect x="520" y="480" width="80" height="27" rx="6" fill="#fff" stroke="#334155" stroke-width="2"/><text class="s" x="560" y="499" text-anchor="middle">USB-C</text>
+
+  <rect class="box led" x="870" y="100" width="280" height="125" rx="12"/><text class="t" x="1010" y="134" text-anchor="middle">Přední LED 50 cm</text><text class="s" x="1010" y="160" text-anchor="middle">pixely 0–79</text><text class="p" x="890" y="202">DIN</text><text class="p" x="1130" y="202" text-anchor="end">DOUT</text>
+  <rect class="box led" x="870" y="315" width="280" height="125" rx="12"/><text class="t" x="1010" y="349" text-anchor="middle">Zadní LED 50 cm</text><text class="s" x="1010" y="375" text-anchor="middle">pixely 80–159</text><text class="p" x="890" y="417">DIN</text>
+
+  <path class="wire v33" d="M410 260H320V140H250M320 260V420H250M320 420V550H250"/>
+  <path class="wire i2c" d="M410 295H300V155H250M410 330H280V170H250"/>
+  <path class="wire sig" d="M410 365H270V285H250"/>
+  <path class="wire touch" d="M410 400H270V425H250M410 435H270V555H250"/>
+  <path class="wire sig" d="M710 330H775"/><rect class="box" x="775" y="312" width="75" height="36" rx="7"/><text class="p" x="812" y="335" text-anchor="middle">470 Ω</text><path class="wire sig" d="M850 330H855V195H870" marker-end="url(#arrow)"/>
+  <path class="wire sig" d="M1150 195H1170V275H840V410H870" marker-end="url(#arrow)"/>
+
+  <path class="wire v5" d="M710 260H790V630H1120M790 630H270V285H250M930 630V225M1090 630V440"/>
+  <path class="wire gnd" d="M710 400H810V670H1120M810 670H270V325H250M270 670V460H250M260 670V590H250M280 670V185H250M950 670V225M1110 670V440"/>
+  <path class="wire i2c" style="stroke-width:7" d="M560 700V507"/><text class="p" x="575" y="696">USB-C kabel 5 V</text>
+
+  <rect class="note" x="420" y="560" width="300" height="70" rx="12"/><text class="t" x="570" y="590" text-anchor="middle">WLED limit 800–850 mA</text><text class="s" x="570" y="615" text-anchor="middle">LED jsou napájené přes pin 5V desky</text>
+</svg>
+
